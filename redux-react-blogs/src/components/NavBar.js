@@ -20,7 +20,6 @@ function NavBar() {
         if (location.pathname !== '/') {
             navigate('/');
         }
-
     }
 
 
