@@ -23,3 +23,9 @@ export const SEARCH_BLOG_REQUEST = 'SEARCH_BLOG_REQUEST';
 
 
 // * end of search blog section
+
+// * update blog section
+
+export const UPDATE_BLOG_REQUEST = 'UPDATE_BLOG_REQUEST';
+export const UPDATE_BLOG_SUCCESS = 'UPDATE_BLOG_SUCCESS';
+export const UPDATE_BLOG_FAILURE = 'UPDATE_BLOG_FAILURE';

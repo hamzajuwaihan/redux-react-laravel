@@ -1,5 +1,5 @@
 
-import { FETCH_BLOGS_REQUEST, FETCH_BLOGS_FAILURE, FETCH_BLOGS_SUCCESS, DELETE_BLOG_REQUEST, DELETE_BLOG_SUCCESS, DELETE_BLOG_FAILURE, ADD_BLOG_REQUEST, ADD_BLOG_SUCCESS, ADD_BLOG_FAILURE, SEARCH_BLOG_REQUEST } from "./blogsType";
+import { FETCH_BLOGS_REQUEST, FETCH_BLOGS_FAILURE, FETCH_BLOGS_SUCCESS, DELETE_BLOG_REQUEST, DELETE_BLOG_SUCCESS, DELETE_BLOG_FAILURE, ADD_BLOG_REQUEST, ADD_BLOG_SUCCESS, ADD_BLOG_FAILURE, SEARCH_BLOG_REQUEST, UPDATE_BLOG_REQUEST } from "./blogsType";
 
 const initialState = {
     loading: false,
@@ -65,6 +65,13 @@ const blogsReducer = (state = initialState, action) => {
                 ...state,
                 loading: true
             }
+        case UPDATE_BLOG_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+
         default: return state
     }
 }

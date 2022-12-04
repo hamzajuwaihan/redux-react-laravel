@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_BLOGS_REQUEST, FETCH_BLOGS_FAILURE, FETCH_BLOGS_SUCCESS, DELETE_BLOG_REQUEST, DELETE_BLOG_SUCCESS, DELETE_BLOG_FAILURE, ADD_BLOG_REQUEST, ADD_BLOG_SUCCESS, ADD_BLOG_FAILURE, SEARCH_BLOG_REQUEST } from "./blogsType";
+import { FETCH_BLOGS_REQUEST, FETCH_BLOGS_FAILURE, FETCH_BLOGS_SUCCESS, DELETE_BLOG_REQUEST, DELETE_BLOG_SUCCESS, DELETE_BLOG_FAILURE, ADD_BLOG_REQUEST, ADD_BLOG_SUCCESS, ADD_BLOG_FAILURE, SEARCH_BLOG_REQUEST, UPDATE_BLOG_REQUEST } from "./blogsType";
 
 
 // ? FETCH BLOGS ACTIONS SECTION
@@ -129,5 +129,27 @@ export const searchBlog = (search) => {
             .catch(error => {
                 dispatch(fetchBlogsFailure(error.message));
             })
+    }
+}
+
+// * END OF SEARCH BLOG ACTIONS SECTION
+
+// * UPDATE BLOG ACTIONS SECTION
+export function updateBlogRequest() {
+    return {
+        type: UPDATE_BLOG_REQUEST
+    }
+}
+
+export const updateBlog = (blog) => {
+    return (dispatch) => {
+        dispatch(updateBlogRequest());
+        axios.put(`http://127.0.0.1:8000/api/blogs/${blog.id}`, blog).then(response => {
+            dispatch(fetchBlogs());
+            console.log(response.data);
+        }).catch(error => {
+            dispatch(fetchBlogsFailure(error.message));
+        })
+
     }
 }
